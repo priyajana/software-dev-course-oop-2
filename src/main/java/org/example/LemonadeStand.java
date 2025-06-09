@@ -77,6 +77,16 @@ public class LemonadeStand {
             return false;
         }
     }
+    public boolean sellLemonade(int discount){
+        Lemonade lemonade = new Lemonade();
+        if (tryMakingLemonade(lemonade) != null) {
+            money += calculateSale(lemonade);
+            money -= money * ((double) discount / 100);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     private Lemonade tryMakingLemonade(Lemonade lemonade) {
         if (sugar >= lemonade.getSugar() && ice >= lemonade.getIce() && lemons >= lemonade.getLemons()) {
